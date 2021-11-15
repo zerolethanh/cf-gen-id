@@ -1,5 +1,5 @@
 {
-  "name": "gen-id",
+  "name": "cf-gen-id",
   "version": "1.0.0",
   "dependencies": {
     "moment": "^2.29.1",
