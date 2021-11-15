@@ -12,5 +12,11 @@
     "nanoid",
     "classfunc"
   ],
-  "type": "module"
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zerolethanh/cf-gen-id"
+  },
+  "author": "ClassFunc",
+  "license": "MIT"
 }

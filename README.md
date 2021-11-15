@@ -1,4 +1,4 @@
-# genId
+# cf-gen-id
 
 ---
 Tạo id dựa trên thời gian và random ký tự.
