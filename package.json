@@ -1,6 +1,6 @@
 {
   "name": "cf-gen-id",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "dependencies": {
     "moment": "^2.29.1",
     "nanoid": "^3.1.30"
