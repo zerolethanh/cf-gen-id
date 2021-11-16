@@ -1,7 +1,9 @@
 import genId from './index.js';
 
-for (let i = 0; i < 100_000; ++i) {
-	const id = genId('user');
-	console.log(id);
+const l = console.log;
+
+for (let i = 0; i < 1_000; ++i) {
+	const id = genId('user', 5, '0123456789');
+	l(id);
 }
 
