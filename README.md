@@ -21,7 +21,7 @@ Tạo id dựa trên thời gian và random ký tự.
 ## Sử dụng:
 
 ```js
-import genId from './index';
+import genId from 'cf-gen-id';
 
 const l = console.log
 l(genId('user')); //user211115T150754_Qi1O : random 4 ký tự (mặc định)
