@@ -23,8 +23,8 @@ const nowOnUTC = () => {
     const H = addZeroPrefix(dateUtc.getHours());
     const m = addZeroPrefix(dateUtc.getMinutes());
     const s = addZeroPrefix(dateUtc.getSeconds());
-    const ms = addZeroPrefix(dateUtc.getMilliseconds());
-    return `${Y + M + D}T${H}${m}${s}${ms}`;
+    // const ms = addZeroPrefix(dateUtc.getMilliseconds());
+    return `${Y + M + D}T${H}${m}${s}`;
 };
 
 const addZeroPrefix = num => +num > 10 ? `${num}` : `0${num}`;
