@@ -1,8 +1,14 @@
 import {customAlphabet} from 'nanoid';
-import {DateTime} from 'luxon';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc.js';
 
-const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-const nowOnUTC = () => DateTime.now().toUTC().toFormat('yyMMdd\'T\'hhmmss');
+dayjs.extend(utc);
+const numberSet = '0123456789';
+const uppercaseAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const lowercaseAlphabet = 'abcdefghijklmnopqrstuvwxyz';
+const alphabet = `${numberSet}${uppercaseAlphabet}${lowercaseAlphabet}`;
+
+const nowOnUTC = () => dayjs.utc().format('YYMMDD\THHmmss');
 //`${d.getFullYear()}${d.getMonth()}${d.getDate()}T${d.getHours()}${d.getMinutes()}${d.getSeconds()}`
 
 const genId = (prefix = '', size = 4, randomSet = alphabet) => {
