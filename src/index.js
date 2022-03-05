@@ -14,15 +14,15 @@ const nowOnUTC = () => {
         date.getUTCHours(),
         date.getUTCMinutes(),
         date.getUTCSeconds(),
-        date.getMilliseconds(),
+        date.getUTCMilliseconds(),
     );
     const dateUtc = new Date(now_utc);
-    const Y = `${dateUtc.getFullYear()}`.slice(-2);
-    const M = addZeroPrefix(dateUtc.getMonth() + 1);
-    const D = addZeroPrefix(dateUtc.getDate());
-    const H = addZeroPrefix(dateUtc.getHours());
-    const m = addZeroPrefix(dateUtc.getMinutes());
-    const s = addZeroPrefix(dateUtc.getSeconds());
+    const Y = `${dateUtc.getUTCFullYear()}`.slice(-2);
+    const M = addZeroPrefix(dateUtc.getUTCMonth() + 1);
+    const D = addZeroPrefix(dateUtc.getUTCDate());
+    const H = addZeroPrefix(dateUtc.getUTCHours());
+    const m = addZeroPrefix(dateUtc.getUTCMinutes());
+    const s = addZeroPrefix(dateUtc.getUTCSeconds());
     // const ms = addZeroPrefix(dateUtc.getMilliseconds());
     return `${Y + M + D}T${H}${m}${s}`;
 };
