@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', {value: true});
+
 var crypto = require('crypto');
 
 function _interopDefaultLegacy(e) {
@@ -72,9 +74,17 @@ const nowOnUTC = () => {
 
 const addZeroPrefix = num => +num > 10 ? `${num}` : `0${num}`;
 
-const genId = (prefix = '', size = 4, randomSet = alphabet) => {
+const genId = ({
+    size = 5,
+    prefix = '',
+    date = false,
+    randomSet = alphabet,
+} = {}) => {
     const nnid = customAlphabet(randomSet, size);
+    if (!date) {
+        return `${prefix}${nnid()}`;
+    }
     return `${prefix}${nowOnUTC()}_${nnid()}`;
 };
 
-module.exports = genId;
+exports.genId = genId;

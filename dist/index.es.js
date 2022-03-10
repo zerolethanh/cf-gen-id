@@ -64,9 +64,17 @@ const nowOnUTC = () => {
 
 const addZeroPrefix = num => +num > 10 ? `${num}` : `0${num}`;
 
-const genId = (prefix = '', size = 4, randomSet = alphabet) => {
+const genId = ({
+    size = 5,
+    prefix = '',
+    date = false,
+    randomSet = alphabet,
+} = {}) => {
     const nnid = customAlphabet(randomSet, size);
+    if (!date) {
+        return `${prefix}${nnid()}`;
+    }
     return `${prefix}${nowOnUTC()}_${nnid()}`;
 };
 
-export {genId as default};
+export {genId};
