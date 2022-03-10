@@ -1,39 +1,49 @@
-# cf-gen-id
+# Generate your_UniqId;
 
----
-Tạo id dựa trên thời gian và random ký tự.
+//user_4yIvo
 
-## Tại sao?
-
-- Có thể thêm prefix.
-- Id có thời gian thân thiện, dễ nhìn.
-- Mặc định có thể tạo 14.776.336 id/mỗi giây (62^4, 62 ký tự
-  → `0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`)
+> For v1 & v2, [Read Here](README-v1.md)
 
 ## Install:
 
-> yarn add cf-gen-id
->
-> or
->
-> npm i -S cf-gen-id
-
-## Sử dụng:
-
-```js
-import genId from 'cf-gen-id';
-
-const l = console.log
-l(genId('user')); //user211115T150754_Qi1O : random 4 ký tự (mặc định)
-l(genId('user', 3)); //user211116T090834_XOg : random 3 ký tự
-l(genId('user', 5, '0123456789')); //user211116T091751_99635 : random 5 ký tự từ 0-9
+```shell
+yarn add cf-gen-id
+or
+npm i -S cf-gen-id
 ```
 
-## License:
+## Usage:
 
-MIT
+```js
+import {genId} from 'cf-gen-id'
+// or with nodejs:
+// const {genId} = require('cf-gen-id')
+for (let i = 0; i < 10; ++i)
+    console.log(genId()); // OCQtC
+for (let i = 0; i < 10; ++i)
+    console.log(genId({size: 20})); // 2YjfdI4YwlroottFsqid
+for (let i = 0; i < 10; ++i)
+    console.log(genId({prefix: 'user_'})); // user_AOi78
+for (let i = 0; i < 10; ++i)
+    console.log(genId({date: true, size: 10})); // 2203010T073347_8FNRWiJtzp
+for (let j = 0; j < 10; ++j)
+    console.log(genId({prefix: 'user_', date: true, size: 20})); //user_2203010T073347_jETGAx5RN9vRENo6udpz
+```
+
+## API:
+
+`size`: default = 5 : Size of random string
+
+`prefix`: default = '' : Prefix of random string
+
+`date`: default = false : If true, prefix date format `YYMMDDTHHmmss_` before random string
+
+`randomSet`: default = `0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`
 
 ## Author:
 
-ClassFunc JSC (https://classfunc.com)
+[ClassFunc Softwares JSC](https://classfunc.com)
 
+## LICENSE:
+
+MIT
