@@ -15,22 +15,27 @@ npm i -S cf-gen-id
 ## Usage:
 
 ```js
-import {genId} from 'cf-gen-id'
+import {genId, genDateId, genDateIdPrefix} from 'cf-gen-id'
 // or with nodejs:
 // const {genId} = require('cf-gen-id')
-for (let i = 0; i < 10; ++i)
-    console.log(genId()); // OCQtC
-for (let i = 0; i < 10; ++i)
-    console.log(genId({size: 20})); // 2YjfdI4YwlroottFsqid
-for (let i = 0; i < 10; ++i)
-    console.log(genId({prefix: 'user_'})); // user_AOi78
-for (let i = 0; i < 10; ++i)
-    console.log(genId({date: true, size: 10})); // 2203010T073347_8FNRWiJtzp
-for (let j = 0; j < 10; ++j)
-    console.log(genId({prefix: 'user_', date: true, size: 20})); //user_2203010T073347_jETGAx5RN9vRENo6udpz
+console.log(genId()); // OCQtC
+console.log(genId({size: 20})); // 2YjfdI4YwlroottFsqid
+console.log(genId({prefix: 'user_'})); // user_AOi78
+console.log(genDateId({size: 10})); // 2203010T073347_8FNRWiJtzp
+console.log(genDateIdPrefix('user_', {size: 10})); //user_220311T175201_XIOJLwMdzh
 ```
 
 ## API:
+
+```ts
+function genId(options?: Options): string;
+
+function genDateId(options?: Options): string;
+
+function genDateIdPrefix(prefix?: string, options?: Options): string;
+```
+
+Options:
 
 `size`: default = 5 : Size of random string
 
