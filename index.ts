@@ -3,9 +3,9 @@ import {customAlphabet} from 'nanoid';
 const numberSet = '0123456789';
 const uppercaseAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const lowercaseAlphabet = 'abcdefghijklmnopqrstuvwxyz';
-const alphabet = `${numberSet}${uppercaseAlphabet}${lowercaseAlphabet}`;
+const alphabet: string = `${numberSet}${uppercaseAlphabet}${lowercaseAlphabet}`;
 
-const nowOnUTC = () => {
+const nowOnUTC = (): string => {
     const date = new Date();
     const now_utc = Date.UTC(
         date.getUTCFullYear(),
@@ -27,24 +27,23 @@ const nowOnUTC = () => {
     return `${Y + M + D}T${H}${m}${s}`;
 };
 
-const addZeroPrefix = num => +num > 10 ? `${num}` : `0${num}`;
-const defaultOptions = {
+const addZeroPrefix = (num): string => +num > 10 ? `${num}` : `0${num}`;
+
+export interface Options {
+    size?: number,
+    prefix?: string,
+    date?: boolean,
+    randomSet?: string
+}
+
+const defaultOptions: Options = {
     size: 5,
     prefix: '',
     date: false,
     randomSet: alphabet,
 };
 
-/**
- *
- * @param {Object} [options=undefined]
- * @param {number} [options.size=5] - size of random string
- * @param {string} [options.prefix=''] - prefix
- * @param {boolean} [options.date=false] - date format `YYMMDDTHHmmss_` before random string
- * @param {string} [options.randomSet='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'] - random set
- * @returns {`${string}_${string}`|`${string}`}
- */
-const genId = (options) => {
+const genId = (options?: Options): string => {
     const {size, prefix, date, randomSet} = {...defaultOptions, ...options};
     const nnid = customAlphabet(randomSet, size);
     if (!date) {
@@ -53,15 +52,8 @@ const genId = (options) => {
     return `${prefix}${nowOnUTC()}_${nnid()}`;
 };
 
-/**
- *
- * @param {Object} [options=undefined]
- * @param {number} [options.size=5] - size of random string
- * @param {string} [options.prefix=''] - prefix
- * @param {string} [options.randomSet='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'] - random set
- * @returns {`${string}_${string}`|`${string}`}
- */
-const genDateId = (options) => {
+
+const genDateId = (options?: Options): string => {
     const opts = {
         ...defaultOptions,
         ...options,
@@ -70,15 +62,8 @@ const genDateId = (options) => {
     return genId(opts);
 };
 
-/**
- *
- * @param {string} [prefix=''] - prefix
- * @param {Object} [options=undefined]
- * @param {number} [options.size=5] - size of random string
- * @param {string} [options.randomSet='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'] - random set
- * @returns {`${string}_${string}`|`${string}`}
- */
-const genDateIdPrefix = (prefix, options) => {
+
+const genDateIdPrefix = (prefix?: string, options?: Options): string => {
     const opts = {
         ...defaultOptions,
         ...options,
