@@ -17,7 +17,7 @@ npm i -S cf-gen-id
 ```js
 import {genId, genDateId, genDateIdPrefix} from 'cf-gen-id'
 // or with nodejs:
-// const {genId} = require('cf-gen-id')
+// const {genId, genDateId, genDateIdPrefix} = require('cf-gen-id')
 console.log(genId()); // OCQtC
 console.log(genId({size: 20})); // 2YjfdI4YwlroottFsqid
 console.log(genId({prefix: 'user_'})); // user_AOi78
