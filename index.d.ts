@@ -1,9 +1,4 @@
-export interface Options {
-    size?: number,
-    prefix?: string,
-    date?: boolean,
-    randomSet?: string
-}
+import {Options} from "./index";
 
 /**
  *
