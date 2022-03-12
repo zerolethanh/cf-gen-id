@@ -1,4 +1,4 @@
-const esbuild = require('esbuild');
+import esbuild from 'esbuild';
 
 const commonOptions = {
     entryPoints: ['index.ts'],
@@ -8,13 +8,12 @@ const commonOptions = {
 
 esbuild.build({
     ...commonOptions,
-    platform: 'node',
-    format: 'cjs',
-    outfile: 'dist/index.node.cjs',
+    format: 'esm',
+    outfile: 'index.js',
 });
-
 esbuild.build({
     ...commonOptions,
-    format: 'esm',
-    outfile: 'dist/index.esm.js',
+    platform: 'node',
+    format: 'cjs',
+    outfile: 'index.cjs',
 });
