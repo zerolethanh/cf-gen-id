@@ -1,6 +1,6 @@
 {
   "name": "cf-gen-id",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "Uniq your id",
   "type": "module",
   "module": "index.js",
