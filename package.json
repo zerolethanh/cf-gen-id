@@ -1,6 +1,6 @@
 {
   "name": "cf-gen-id",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "description": "Uniq your id",
   "type": "module",
   "module": "index.js",
@@ -10,7 +10,7 @@
     "nanoid": "^3.3.2"
   },
   "scripts": {
-    "build": "tsc && node esbuild.js"
+    "build": "node esbuild.js"
   },
   "exports": {
     "import": "./index.js",
@@ -18,6 +18,12 @@
     "default": "./index.js",
     "types": "./index.d.ts"
   },
+  "files": [
+    "index.js",
+    "index.cjs",
+    "index.d.ts",
+    "LICENSE"
+  ],
   "keywords": [
     "random",
     "id",
@@ -33,6 +39,7 @@
   "license": "MIT",
   "devDependencies": {
     "esbuild": "^0.14.25",
+    "esbuild-plugin-d.ts": "^1.1.0",
     "typescript": "^4.6.3"
   }
 }

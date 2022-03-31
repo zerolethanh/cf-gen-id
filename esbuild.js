@@ -1,9 +1,11 @@
 import esbuild from 'esbuild';
+import {dtsPlugin} from 'esbuild-plugin-d.ts';
 
 const commonOptions = {
   entryPoints: ['index.ts'],
   // bundle: true,
   // minify: true,
+  plugins: [dtsPlugin()],
 };
 
 console.log(
