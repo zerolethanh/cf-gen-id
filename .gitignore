@@ -105,4 +105,4 @@ typings/
 
 .idea/
 test/
-#build.js
+#esbuild.js
