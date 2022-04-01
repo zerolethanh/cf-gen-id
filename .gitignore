@@ -104,5 +104,3 @@ typings/
 .tern-port
 
 .idea/
-test/
-#esbuild.js

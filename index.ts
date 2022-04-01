@@ -40,31 +40,23 @@ const genId = (options?: IOptions) => {
     return `${prefix}${nowOnUTC()}_${nnid()}`;
 };
 const genDateId = (options?: IOptions) => {
-    const opts = {
-        ...defaultOptions,
-        ...options,
-        date: true
-    };
-    return genId(opts);
+    return genId(getOptions(options, {date: true}));
 };
 const genDateIdPrefix = (prefix: string, options?: IOptions) => {
-    const opts = {
-        ...defaultOptions,
-        ...options,
-        date: true,
-        prefix
-    };
-    return genId(opts);
+    return genId(getOptions(options, {date: true, prefix}));
 };
 const genIdSize = (size: number, options?: IOptions) => {
-    const opts = {
-        ...defaultOptions,
-        ...options,
-        size,
-    };
-    return genId(opts)
+    return genId(getOptions(options, {size}))
 }
 
+//helpers
+const getOptions = (opts?: IOptions, otherOptions?: IOptions) => {
+    return {
+        ...defaultOptions,
+        ...opts,
+        ...otherOptions
+    }
+}
 export {
     genDateId,
     genDateIdPrefix,
