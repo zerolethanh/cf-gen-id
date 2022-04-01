@@ -13,6 +13,7 @@
 - [genDateId](modules.md#gendateid)
 - [genDateIdPrefix](modules.md#gendateidprefix)
 - [genId](modules.md#genid)
+- [genIdPrefix](modules.md#genidprefix)
 - [genIdSize](modules.md#genidsize)
 
 ## Functions
@@ -33,7 +34,7 @@
 
 #### Defined in
 
-[index.ts:42](https://github.com/zerolethanh/cf-gen-id/blob/3c02d1b/index.ts#L42)
+[index.ts:45](https://github.com/zerolethanh/cf-gen-id/blob/1991d08/index.ts#L45)
 
 ___
 
@@ -54,7 +55,7 @@ ___
 
 #### Defined in
 
-[index.ts:45](https://github.com/zerolethanh/cf-gen-id/blob/3c02d1b/index.ts#L45)
+[index.ts:48](https://github.com/zerolethanh/cf-gen-id/blob/1991d08/index.ts#L48)
 
 ___
 
@@ -74,7 +75,28 @@ ___
 
 #### Defined in
 
-[index.ts:34](https://github.com/zerolethanh/cf-gen-id/blob/3c02d1b/index.ts#L34)
+[index.ts:34](https://github.com/zerolethanh/cf-gen-id/blob/1991d08/index.ts#L34)
+
+___
+
+### genIdPrefix
+
+▸ **genIdPrefix**(`prefix`, `options?`): `string`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `prefix` | `string` |
+| `options?` | [`IOptions`](interfaces/IOptions.md) |
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[index.ts:42](https://github.com/zerolethanh/cf-gen-id/blob/1991d08/index.ts#L42)
 
 ___
 
@@ -95,4 +117,4 @@ ___
 
 #### Defined in
 
-[index.ts:48](https://github.com/zerolethanh/cf-gen-id/blob/3c02d1b/index.ts#L48)
+[index.ts:51](https://github.com/zerolethanh/cf-gen-id/blob/1991d08/index.ts#L51)

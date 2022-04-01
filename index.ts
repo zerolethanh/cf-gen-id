@@ -39,6 +39,9 @@ const genId = (options?: IOptions) => {
     }
     return `${prefix}${nowOnUTC()}_${nnid()}`;
 };
+const genIdPrefix = (prefix: string, options?: IOptions) => {
+    return genId(getOptions(options, {prefix}))
+}
 const genDateId = (options?: IOptions) => {
     return genId(getOptions(options, {date: true}));
 };
@@ -58,8 +61,9 @@ const getOptions = (opts?: IOptions, otherOptions?: IOptions) => {
     }
 }
 export {
+    genId,
+    genIdPrefix,
+    genIdSize,
     genDateId,
     genDateIdPrefix,
-    genId,
-    genIdSize
 };

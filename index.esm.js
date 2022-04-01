@@ -2,10 +2,7 @@ var __defProp = Object.defineProperty;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj
-    ? __defProp(obj, key,
-        {enumerable: true, configurable: true, writable: true, value})
-    : obj[key] = value;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __spreadValues = (a, b) => {
   for (var prop in b || (b = {}))
     if (__hasOwnProp.call(b, prop))
@@ -17,17 +14,14 @@ var __spreadValues = (a, b) => {
     }
   return a;
 };
-import {customAlphabet} from 'nanoid';
-
-const numberSet = '0123456789';
-const uppercaseAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const lowercaseAlphabet = 'abcdefghijklmnopqrstuvwxyz';
+import { customAlphabet } from "nanoid";
+const numberSet = "0123456789";
+const uppercaseAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lowercaseAlphabet = "abcdefghijklmnopqrstuvwxyz";
 const alphabet = `${numberSet}${uppercaseAlphabet}${lowercaseAlphabet}`;
 const nowOnUTC = () => {
   const date = new Date();
-  const now_utc = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(),
-      date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(),
-      date.getUTCSeconds(), date.getUTCMilliseconds());
+  const now_utc = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds(), date.getUTCMilliseconds());
   const dateUtc = new Date(now_utc);
   const Y = `${dateUtc.getUTCFullYear()}`.slice(-2);
   const M = addZeroPrefix(dateUtc.getUTCMonth() + 1);
@@ -40,35 +34,37 @@ const nowOnUTC = () => {
 const addZeroPrefix = (num) => +num > 10 ? `${num}` : `0${num}`;
 const defaultOptions = {
   size: 5,
-  prefix: '',
+  prefix: "",
   date: false,
-  randomSet: alphabet,
+  randomSet: alphabet
 };
 const genId = (options) => {
-  const {size, prefix, date, randomSet} = __spreadValues(
-      __spreadValues({}, defaultOptions), options);
+  const { size, prefix, date, randomSet } = __spreadValues(__spreadValues({}, defaultOptions), options);
   const nnid = customAlphabet(randomSet, size);
   if (!date) {
     return `${prefix}${nnid()}`;
   }
   return `${prefix}${nowOnUTC()}_${nnid()}`;
 };
+const genIdPrefix = (prefix, options) => {
+  return genId(getOptions(options, { prefix }));
+};
 const genDateId = (options) => {
-  return genId(getOptions(options, {date: true}));
+  return genId(getOptions(options, { date: true }));
 };
 const genDateIdPrefix = (prefix, options) => {
-  return genId(getOptions(options, {date: true, prefix}));
+  return genId(getOptions(options, { date: true, prefix }));
 };
 const genIdSize = (size, options) => {
-  return genId(getOptions(options, {size}));
+  return genId(getOptions(options, { size }));
 };
 const getOptions = (opts, otherOptions) => {
-  return __spreadValues(
-      __spreadValues(__spreadValues({}, defaultOptions), opts), otherOptions);
+  return __spreadValues(__spreadValues(__spreadValues({}, defaultOptions), opts), otherOptions);
 };
 export {
   genDateId,
   genDateIdPrefix,
   genId,
-  genIdSize,
+  genIdPrefix,
+  genIdSize
 };

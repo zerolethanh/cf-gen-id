@@ -17,24 +17,44 @@ npm i -S cf-gen-id
 ## Usage:
 
 ```js
-import {genId, genDateId, genDateIdPrefix} from 'cf-gen-id'
-// or with nodejs:
-// const {genId, genDateId, genDateIdPrefix} = require('cf-gen-id')
-console.log(genId()); // OCQtC
-console.log(genId({size: 20})); // 2YjfdI4YwlroottFsqid
-console.log(genId({prefix: 'user_'})); // user_AOi78
-console.log(genDateId({size: 10})); // 2203010T073347_8FNRWiJtzp
-console.log(genDateIdPrefix('user_', {size: 10})); //user_220311T175201_XIOJLwMdzh
+import {
+  genDateId,
+  genDateIdPrefix,
+  genId,
+  genIdPrefix,
+  genIdSize,
+} from 'cf-gen-id';
+
+const log = (func) => {
+  for (let i = 0; i < 5; ++i) {
+    console.log(func());
+  }
+};
+
+log(() => genId());//yB364
+log(() => genId({prefix: 'data_', size: 8}));//data_ArPxpi85
+log(() => genIdPrefix('id_', {size: 12}));//id_4jfMDSSMLTz6
+log(() => genDateIdPrefix('user_'));//user_220401T051921_NB0a2
+log(() => genDateId({size: 10}));//220401T051921_jxWwNaQaUU
+log(() => genIdSize(20));//SXXO75OG7Ds3mJ9L37q4
+
 ```
 
 ## API:
 
 ```ts
-function genId(options?: Options): string;
+ interface IOptions {
+    prefix?: string;
+    date?: boolean;
+    size?: number;
+    randomSet?: string;
+}
+ const genId: (options?: IOptions | undefined) => string;
+ const genIdPrefix: (prefix: string, options?: IOptions | undefined) => string;
+ const genDateId: (options?: IOptions | undefined) => string;
+ const genDateIdPrefix: (prefix: string, options?: IOptions | undefined) => string;
+ const genIdSize: (size: number, options?: IOptions | undefined) => string;
 
-function genDateId(options?: Options): string;
-
-function genDateIdPrefix(prefix?: string, options?: Options): string;
 ```
 
 Options:
