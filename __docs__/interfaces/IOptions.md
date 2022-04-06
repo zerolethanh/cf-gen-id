@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[index.ts:29](https://github.com/zerolethanh/cf-gen-id/blob/1991d08/index.ts#L29)
+[index.ts:29](https://github.com/zerolethanh/cf-gen-id/blob/0407661/index.ts#L29)
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 #### Defined in
 
-[index.ts:28](https://github.com/zerolethanh/cf-gen-id/blob/1991d08/index.ts#L28)
+[index.ts:28](https://github.com/zerolethanh/cf-gen-id/blob/0407661/index.ts#L28)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[index.ts:31](https://github.com/zerolethanh/cf-gen-id/blob/1991d08/index.ts#L31)
+[index.ts:31](https://github.com/zerolethanh/cf-gen-id/blob/0407661/index.ts#L31)
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-[index.ts:30](https://github.com/zerolethanh/cf-gen-id/blob/1991d08/index.ts#L30)
+[index.ts:30](https://github.com/zerolethanh/cf-gen-id/blob/0407661/index.ts#L30)
